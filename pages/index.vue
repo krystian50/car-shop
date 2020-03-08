@@ -1,68 +1,47 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        car-shop
-      </h1>
-      <h2 class="subtitle">
-        my car-shop app
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <main class="container">
+    <div class="jumbotron text-center">
+      <h1>Car Shop</h1>
+      <p>Welcome to our new online car shop</p>
     </div>
-  </div>
+
+    <article class="list-group">
+      <section class="list-group-item">
+        <!-- Add products here -->
+      </section>
+    </article>
+  </main>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// remove when will be used
+// eslint-disable-next-line no-unused-vars
+const getProducts = () => {
+  return Promise.resolve([
+    {
+      id: 'car0',
+      name: 'Opel Corsa B'
+    },
+    {
+      id: 'car1',
+      name: 'Opel Astra G'
+    },
+    {
+      id: 'car2',
+      name: 'Audi a3 p1'
+    },
+    {
+      id: 'car3',
+      name: 'Volkswagen Golf V'
+    }
+  ])
+}
 
 export default {
-  components: {
-    Logo
+  name: 'HomePage',
+
+  asyncData() {
+    return {}
   }
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
