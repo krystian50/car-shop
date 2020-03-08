@@ -6,16 +6,18 @@
     </div>
 
     <article class="list-group">
-      <section class="list-group-item">
-        <!-- Add products here -->
+      <section
+        v-for="product in products"
+        :key="product.id"
+        class="list-group-item"
+      >
+        <h2>{{ product.name }}</h2>
       </section>
     </article>
   </main>
 </template>
 
 <script>
-// remove when will be used
-// eslint-disable-next-line no-unused-vars
 const getProducts = () => {
   return Promise.resolve([
     {
@@ -40,8 +42,10 @@ const getProducts = () => {
 export default {
   name: 'HomePage',
 
-  asyncData() {
-    return {}
+  async asyncData() {
+    return {
+      products: await getProducts()
+    }
   }
 }
 </script>
